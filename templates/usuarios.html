@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Primera Tabla</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color:   
+ #f2f2f2;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head> 
+
+<body>
+
+<h2>Mi Tabla de Frutas</h2>
+
+<table>
+  <tr>
+    <th>Imagen</th>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+  </tr>
+ 
+<tbody>
+        {% for usuarios in personas_list %}
+      <tr>
+        <td><img src="{{ usuarios.imagen.url }}" width="300" height="300"></td>
+        <td>{{ usuarios.nombre }}</td>
+        <td>{{ usuarios.descripcion }}</td>
+      </tr>
+
+      {% endfor %}
+    
+</tbody>
+  
+</table>
+
+</body>
+</html>

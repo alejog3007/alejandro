@@ -1,0 +1,20 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #800080;">
+    <div style="background-color: #ffebeb; border-radius: 15px; padding: 30px; box-shadow: 0 6px 12px rgba(0,0,0,0.15); width: 45%;">
+        <form action="" method="post" style="text-align: center;">
+            {% csrf_token %}
+            <p style="color: #b30000;">Seguro que quieres eliminar <strong>{{ post.title }}</strong>?</p>
+            <input type="submit" value="Delete" style="background-color: #b30000; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+        </form>
+    </div>
+</div>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif; /* Fuente básica */
+    }
+
+    p {
+        font-weight: bold; /* Negrita para el texto */
+    }
+</style>

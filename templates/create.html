@@ -1,0 +1,30 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(to bottom, #4169E1, #8B0000);">
+    <div style="background-color: #FFFDD0; border-radius: 15px; padding: 30px; box-shadow: 0 6px 12px rgba(0,0,0,0.15); width: 60%;">
+        <form action="" method="post" enctype="multipart/form-data" style="text-align: center;">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div style="text-align: center;">
+                <input type="submit" value="Crear" style="background-color: #D2B48C; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif; /* Fuente básica */
+    }
+
+    label {
+        font-weight: bold; /* Negrita para las etiquetas */
+    }
+
+    input[type="text"], textarea {
+        width: 100%; 
+        padding: 10px; 
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
+        box-sizing: border-box; 
+        margin-top: 5px; 
+        margin-bottom: 20px;

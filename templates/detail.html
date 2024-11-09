@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d3d3d3; /* Fondo gris claro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .product-card {
+            background-color: #b0e0e6; /* Fondo azul cristalino */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .product-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .product-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .product-price {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #d32f2f; /* Color rojo para el precio */
+        }
+        .product-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .product-card button {
+            background-color: #DAA520; /* Color dorado */
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .product-card button:hover {
+            background-color: #b8860b; /* Dorado oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <div class="product-image">
+            {% if post.imagen %}
+            <img src="{{post.imagen.url}}" alt="Imagen del Producto">
+            {% endif %}
+        </div>
+        
+        <h2 class="product-title">{{post.titulo}}<h2>
+        <p class="product-price">${{post.precio}}</p>
+        <p class="product-description">{{post.descripcion}}</p>
+        <button>Añadir al Carrito</button>
+        <button>Comprar Ahora</button>
+    </div>
+    <a href="{% url 'update' post.pk %}">Actualizar</a>
+    <a href="{% url 'delete' post.pk %}">Borrar</a>
+</body>
+</html>

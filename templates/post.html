@@ -1,8 +1,79 @@
-{% for i in post_list %}
+{% include 'navbar.html' %}
 
-    <h1>{{ i.titulo }}</h1>
-    <br>
-    <p>{{ i.descripcion }}</p>
-    <hr>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicación de Productos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77a5d8 3px solid;
+        }
+        header h1 {
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        .product-card {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .product-image img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .product-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .product-description {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Catálogo de Productos</h1>
+        </div>
+    </header>
+    {% for post in post_list %}
+    
+    <div class="container">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="ruta-de-la-imagen.jpg" alt="Imagen del Producto">
+            </div>
+            <h2 class="product-title"><a href="{% url 'detail' post.pk %}">{{ post.titulo }}</a></h2>
+            <p class="product-description">{{post.descripcion}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>
 
-{% endfor %}
+
+<a href="{% url 'usuarios' %}">Dashboard de usuarios</a>
+<a href="{% url 'create' %}">create</a>
+
+
